@@ -2,6 +2,7 @@ package com.scriptintech.unitconverterx.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,6 +14,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -69,22 +71,25 @@ private fun NavigationCard(item: NavigationItem, onItemClick: (String) -> Unit) 
 
     Column(
         modifier = Modifier
-            .padding(8.dp)
+            .padding(10.dp)
             .clickable { onItemClick(item.route) }
-            .background(Color.DarkGray, shape) // Background color for the card
+            .background(
+                MaterialTheme.colorScheme.primaryContainer,
+                shape
+            ) // Background color for the card
             .fillMaxSize() // Make the card square
     ) {
         Box(
             modifier = Modifier
                 .padding(10.dp)
-                .size(70.dp) // Adjust size as needed
+                .size(50.dp) // Adjust size as needed
                 .align(Alignment.CenterHorizontally)
         ) {
             Icon(
                 painter = painterResource(id = item.icon),
                 contentDescription = "Icon",
                 modifier = Modifier.fillMaxWidth(),
-                tint = Color.White
+                tint = Color.Black
             )
         }
         Text(
@@ -93,7 +98,7 @@ private fun NavigationCard(item: NavigationItem, onItemClick: (String) -> Unit) 
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
-            color = Color.White // Color for the title text
+            color = Color.Black // Color for the title text
         )
     }
 }
