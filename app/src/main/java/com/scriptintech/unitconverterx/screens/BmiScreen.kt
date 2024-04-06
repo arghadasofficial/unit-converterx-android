@@ -3,6 +3,8 @@ package com.scriptintech.unitconverterx.screens
 import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
@@ -22,13 +24,13 @@ import androidx.compose.ui.unit.dp
 import com.scriptintech.unitconverterx.viewmodels.BmiViewModel
 
 @Composable
-fun BmiScreen(context: Context, viewModel: BmiViewModel) {
+fun BmiScreen(context: Context, viewModel: BmiViewModel, paddingValues: PaddingValues) {
     val heightInput by viewModel.heightInput.observeAsState(initial = "")
     val weightInput by viewModel.weightInput.observeAsState(initial = "")
     val bmiResult by viewModel.bmiResult.observeAsState(initial = "")
     val bmiResultType by viewModel.bmiResultType.observeAsState(initial = "")
 
-    Column {
+    Column (modifier = Modifier.fillMaxSize().padding(paddingValues)) {
         BmiInput(
             heightInput = heightInput,
             weightInput = weightInput,

@@ -15,21 +15,27 @@ import com.scriptintech.unitconverterx.viewmodels.GstViewModel
 import com.scriptintech.unitconverterx.viewmodels.HomeViewModel
 
 @Composable
-fun setupNavGraph(navHostController: NavHostController, paddingValues: PaddingValues, context: Context
+fun SetupNavGraph(
+    navHostController: NavHostController, paddingValues: PaddingValues, context: Context
 ) {
     val bmiViewModel: BmiViewModel = viewModel()
     val homeViewModel: HomeViewModel = viewModel()
     val gstViewModel: GstViewModel = viewModel()
 
     NavHost(navController = navHostController, startDestination = Routes.HOME_SCREEN.getRoute) {
-        composable(Routes.HOME_SCREEN.getRoute){
-            HomeScreen(navHostController = navHostController)
+        composable(Routes.HOME_SCREEN.getRoute) {
+            HomeScreen(
+                navHostController = navHostController,
+                paddingValues = paddingValues,
+                context = context,
+                viewModel = homeViewModel
+            )
         }
-        composable(Routes.BMI_SCREEN.getRoute){
-            BmiScreen(context = context, viewModel = bmiViewModel)
+        composable(Routes.BMI_SCREEN.getRoute) {
+            BmiScreen(context = context, viewModel = bmiViewModel, paddingValues = paddingValues)
         }
-        composable(Routes.GST_SCREEN.getRoute){
-            GstScreen()
+        composable(Routes.GST_SCREEN.getRoute) {
+            GstScreen(paddingValues = paddingValues, viewModel = gstViewModel)
         }
     }
 }
