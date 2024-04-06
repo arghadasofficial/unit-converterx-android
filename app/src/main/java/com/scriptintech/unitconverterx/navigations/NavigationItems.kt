@@ -1,30 +1,33 @@
 package com.scriptintech.unitconverterx.navigations
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.ui.graphics.vector.ImageVector
+import com.scriptintech.unitconverterx.R
 
 data class NavigationItem(
     var title: String,
-    var icon: ImageVector,
+    var icon: Int,
     var route: String
 )
 
 fun getNavigationItemsList(): List<NavigationItem> {
     return listOf(
         NavigationItem(
+            title = "Home",
+            icon = R.drawable.home,
+            route = Routes.HOME_SCREEN.getRoute
+        ),
+        NavigationItem(
             title = "GST",
-            icon = Icons.Filled.Home,
+            icon = R.drawable.tax,
             route = Routes.GST_SCREEN.getRoute
         ),
         NavigationItem(
             title = "Discount",
-            icon = Icons.Filled.Home,
+            icon = R.drawable.dicount_tag,
             route = Routes.DISCOUNT_SCREEN.getRoute
         ),
         NavigationItem(
             title = "BMI",
-            icon = Icons.Filled.Home,
+            icon = R.drawable.bmi,
             route = Routes.BMI_SCREEN.getRoute
         )
     )

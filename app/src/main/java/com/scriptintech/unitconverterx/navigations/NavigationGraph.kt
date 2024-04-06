@@ -28,10 +28,9 @@ fun SetupNavGraph(
     NavHost(navController = navHostController, startDestination = Routes.HOME_SCREEN.getRoute) {
         composable(Routes.HOME_SCREEN.getRoute) {
             HomeScreen(
+                viewModel = homeViewModel,
                 navHostController = navHostController,
-                paddingValues = paddingValues,
-                context = context,
-                viewModel = homeViewModel
+                paddingValues = paddingValues
             )
         }
         composable(Routes.BMI_SCREEN.getRoute) {

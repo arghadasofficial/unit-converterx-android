@@ -9,10 +9,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.scriptintech.unitconverterx.navigations.SetupNavGraph
+import com.scriptintech.unitconverterx.navigations.getNavigationItemsList
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,10 +31,20 @@ class MainActivity : ComponentActivity() {
 fun App() {
     val context: Context = LocalContext.current
     val navController = rememberNavController()
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute: String? = navBackStackEntry?.destination?.route
+    val items = getNavigationItemsList()
+
+    val topBarTitle = if (currentRoute != null) {
+        items[items.indexOfFirst { it.route == currentRoute }].title
+    } else {
+        "SimpleXUnit Converter"
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(title = {
-                Text(text = "Unit Converter X")
+                Text(text = topBarTitle)
             })
         }
     ) {
