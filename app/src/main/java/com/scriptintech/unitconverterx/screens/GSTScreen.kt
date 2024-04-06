@@ -22,7 +22,6 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.scriptintech.unitconverterx.viewmodels.GstViewModel
 
@@ -60,7 +59,7 @@ private fun GstUtil(
     onDropDownSelectedValue: (String) -> Unit,
     onOriginalPriceUpdate: (String) -> Unit,
 ) {
-    Column() {
+    Column {
         OutlinedTextField(modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp),

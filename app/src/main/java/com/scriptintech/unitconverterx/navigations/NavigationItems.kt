@@ -18,6 +18,11 @@ fun getNavigationItemsList(): List<NavigationItem> {
             route = Routes.GST_SCREEN.getRoute
         ),
         NavigationItem(
+            title = "Discount",
+            icon = Icons.Filled.Home,
+            route = Routes.DISCOUNT_SCREEN.getRoute
+        ),
+        NavigationItem(
             title = "BMI",
             icon = Icons.Filled.Home,
             route = Routes.BMI_SCREEN.getRoute
