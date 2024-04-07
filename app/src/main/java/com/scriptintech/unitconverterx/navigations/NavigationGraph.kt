@@ -8,10 +8,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.scriptintech.unitconverterx.screens.BmiScreen
+import com.scriptintech.unitconverterx.screens.DataScreen
 import com.scriptintech.unitconverterx.screens.DiscountScreen
 import com.scriptintech.unitconverterx.screens.GstScreen
 import com.scriptintech.unitconverterx.screens.HomeScreen
 import com.scriptintech.unitconverterx.viewmodels.BmiViewModel
+import com.scriptintech.unitconverterx.viewmodels.DataViewModel
 import com.scriptintech.unitconverterx.viewmodels.DiscountViewModel
 import com.scriptintech.unitconverterx.viewmodels.GstViewModel
 import com.scriptintech.unitconverterx.viewmodels.HomeViewModel
@@ -24,6 +26,7 @@ fun SetupNavGraph(
     val homeViewModel: HomeViewModel = viewModel()
     val gstViewModel: GstViewModel = viewModel()
     val discountViewModel: DiscountViewModel = viewModel()
+    val dataViewModel: DataViewModel = viewModel()
 
     NavHost(navController = navHostController, startDestination = Routes.HOME_SCREEN.getRoute) {
         composable(Routes.HOME_SCREEN.getRoute) {
@@ -41,6 +44,9 @@ fun SetupNavGraph(
         }
         composable(Routes.DISCOUNT_SCREEN.getRoute) {
             DiscountScreen(paddingValues = paddingValues, viewModel = discountViewModel)
+        }
+        composable(Routes.DATA_SCREEN.getRoute) {
+            DataScreen(paddingValues = paddingValues, viewModel = dataViewModel)
         }
     }
 }

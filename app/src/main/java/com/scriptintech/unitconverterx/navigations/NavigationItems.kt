@@ -16,7 +16,7 @@ fun getNavigationItemsList(): List<NavigationItem> {
             route = Routes.HOME_SCREEN.getRoute
         ),
         NavigationItem(
-            title = "GST",
+            title = "Gst",
             icon = R.drawable.tax,
             route = Routes.GST_SCREEN.getRoute
         ),
@@ -26,7 +26,12 @@ fun getNavigationItemsList(): List<NavigationItem> {
             route = Routes.DISCOUNT_SCREEN.getRoute
         ),
         NavigationItem(
-            title = "BMI",
+            title = "Data",
+            icon = R.drawable.data,
+            route = Routes.DATA_SCREEN.getRoute
+        ),
+        NavigationItem(
+            title = "Bmi",
             icon = R.drawable.bmi,
             route = Routes.BMI_SCREEN.getRoute
         )
