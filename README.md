@@ -1,6 +1,6 @@
 # Unit-Converter-X
 
-This project is a unit converter application built with Jetpack Compose and Kotlin for the Android platform. It offers a user-friendly interface for performing conversions across various units commonly used in everyday life and professional settings.
+This project is a unit converter application built with Jetpack Compose and Kotlin for the Android platform. It offers a user-friendly interface for performing conversions across various units commonly used in everyday life.
 
 ## Features
 
