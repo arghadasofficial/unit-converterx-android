@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.scriptintech.unitconverterx.screens.area.AreaScreen
 import com.scriptintech.unitconverterx.screens.area.AreaViewModel
 import com.scriptintech.unitconverterx.screens.bmi.BmiScreen
+import com.scriptintech.unitconverterx.screens.bmi.BmiViewModel
 import com.scriptintech.unitconverterx.screens.data.DataScreen
 import com.scriptintech.unitconverterx.screens.discount.DiscountScreen
 import com.scriptintech.unitconverterx.screens.gst.GstScreen
@@ -20,6 +21,7 @@ import com.scriptintech.unitconverterx.screens.time.TimeScreen
 @Composable
 fun UnitNavigation() {
     val areaViewModel: AreaViewModel = viewModel()
+    val bmiViewModel: BmiViewModel = viewModel()
 
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Routes.HomeScreen.getRoute) {
@@ -27,7 +29,7 @@ fun UnitNavigation() {
             HomeScreen(navController = navController)
         }
         composable(route = Routes.BmiScreen.getRoute) {
-            BmiScreen(navController = navController)
+            BmiScreen(navController = navController, bmiViewModel)
         }
         composable(route = Routes.DataScreen.getRoute) {
             DataScreen(navController = navController)

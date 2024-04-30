@@ -21,7 +21,7 @@ import com.scriptintech.unitconverterx.components.UTextField
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BmiScreen(navController: NavController) {
+fun BmiScreen(navController: NavController, bmiViewModel: BmiViewModel) {
     Scaffold(
         topBar = {
             TopAppBar(title = { Text(text = "BMI") }, navigationIcon = {
@@ -31,24 +31,32 @@ fun BmiScreen(navController: NavController) {
             })
         },
     ) {
-        MainContent(paddingValues = it)
+        MainContent(paddingValues = it, bmiViewModel)
     }
 }
 
 @Composable
 private fun MainContent(
-    paddingValues: PaddingValues,
+    paddingValues: PaddingValues, viewModel: BmiViewModel
 ) {
-    Column(modifier = Modifier
-        .padding(paddingValues)
-        .fillMaxWidth()) {
-        UTextField(value = "", label = "Height (cm)") {
-
+    Column(
+        modifier = Modifier
+            .padding(paddingValues)
+            .fillMaxWidth()
+    ) {
+        UTextField(value = viewModel.height.value, label = "Height (cm)") {
+            viewModel.changeHeight(it)
         }
-        UTextField(value = "", label = "Weight (kg)") {
-
+        UTextField(value = viewModel.weight.value, label = "Weight (kg)") {
+            viewModel.changeWeight(it)
         }
-        UButton(modifier = Modifier.padding(8.dp).fillMaxWidth(), value = "Calculate",onClick = {})
+        UButton(modifier = Modifier
+            .padding(8.dp)
+            .fillMaxWidth(), value = "Calculate", onClick = { viewModel.calculateBmi()
+        })
+        Text(text = viewModel.bmi.toString())
+        Text(text = viewModel.category.value)
+        Text(text = viewModel.suggestion.value)
     }
 }
 
