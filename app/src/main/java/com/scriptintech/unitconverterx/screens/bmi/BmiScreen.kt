@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.scriptintech.unitconverterx.components.UButton
-import com.scriptintech.unitconverterx.components.UTextField
+import com.scriptintech.unitconverterx.components.UTextFieldNumeric
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -44,19 +44,24 @@ private fun MainContent(
             .padding(paddingValues)
             .fillMaxWidth()
     ) {
-        UTextField(value = viewModel.height.value, label = "Height (cm)") {
+        UTextFieldNumeric(value = viewModel.height.value, label = "Height (cm)") {
             viewModel.changeHeight(it)
         }
-        UTextField(value = viewModel.weight.value, label = "Weight (kg)") {
+        UTextFieldNumeric(value = viewModel.weight.value, label = "Weight (kg)") {
             viewModel.changeWeight(it)
         }
         UButton(modifier = Modifier
             .padding(8.dp)
-            .fillMaxWidth(), value = "Calculate", onClick = { viewModel.calculateBmi()
+            .fillMaxWidth(), value = "Calculate", onClick = {
+            viewModel.calculateBmi()
         })
-        Text(text = viewModel.bmi.toString())
-        Text(text = viewModel.category.value)
-        Text(text = viewModel.suggestion.value)
+        if (viewModel.bmiResult.value.bmi > 0.0) {
+            Text(text = "BMI: ${viewModel.bmiResult.value.bmi}")
+            Text(text = "Category: ${viewModel.bmiResult.value.category}")
+            Text(text = "Suggestion: ${viewModel.bmiResult.value.suggestion}")
+        } else if (viewModel.bmiResult.value.bmi == 0.0 && viewModel.bmiResult.value.category == "Error") {
+            Text(text = "Error: Invalid input")
+        }
     }
 }
 
