@@ -30,7 +30,7 @@ fun UTriggerButton(
 
 @Composable
 fun UButton(
-    modifier: Modifier = Modifier, value: String = "Trigger", onClick: () -> Unit = {}
+    modifier: Modifier = Modifier, value: String = "Calculate", onClick: () -> Unit = {}
 ) {
     Button(
         modifier = modifier,

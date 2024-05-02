@@ -19,8 +19,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.scriptintech.unitconverterx.components.UButton
 import com.scriptintech.unitconverterx.components.UDropdown
-import com.scriptintech.unitconverterx.components.UTextField
+import com.scriptintech.unitconverterx.components.UTextFieldNumeric
 import com.scriptintech.unitconverterx.components.UTriggerButton
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -28,11 +29,12 @@ import com.scriptintech.unitconverterx.components.UTriggerButton
 fun AreaScreen(navController: NavController, areaViewModel: AreaViewModel) {
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text(text = "Area", textAlign = TextAlign.Center) }, navigationIcon = {
-                IconButton(onClick = { navController.popBackStack() }) {
-                    Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "")
-                }
-            })
+            TopAppBar(title = { Text(text = "Area", textAlign = TextAlign.Center) },
+                navigationIcon = {
+                    IconButton(onClick = { navController.popBackStack() }) {
+                        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "")
+                    }
+                })
         },
     ) {
         MainContent(paddingValues = it, viewModel = areaViewModel)
@@ -44,39 +46,47 @@ private fun MainContent(paddingValues: PaddingValues, viewModel: AreaViewModel) 
     Column(
         modifier = Modifier.padding(paddingValues)
     ) {
-        UTextField(value = viewModel.input.value, label = "Area Input", onValueChange = {
+        UTextFieldNumeric(value = viewModel.input.value, label = "Area Input", onValueChange = {
             viewModel.changeInputValue(it)
         })
         Row(
-            modifier = Modifier.fillMaxWidth().padding(8.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Column {
                 UTriggerButton(value = viewModel.fKey.value,
                     onClick = { viewModel.changeFState(true) })
-                UDropdown(items = getAreaUnits(),
+                UDropdown(items = viewModel.units.value,
                     expanded = viewModel.isFExpanded.value,
                     onDismiss = {
                         viewModel.changeFState(false)
                     },
-                    onItemClick = { fKey ->
-                        viewModel.changeFKey(fKey)
+                    onItemClick = { fromUnit ->
+                        viewModel.changeFKey(fromUnit)
                         viewModel.changeFState(false)
                     })
             }
+            UButton(onClick = {
+                viewModel.convertArea()
+            })
             Column {
                 UTriggerButton(value = viewModel.sKey.value,
                     onClick = { viewModel.changeSState(true) })
-                UDropdown(items = getAreaUnits(),
+                UDropdown(items = viewModel.units.value,
                     expanded = viewModel.isSExpanded.value,
                     onDismiss = {
                         viewModel.changeSState(false)
                     },
-                    onItemClick = { sKey ->
-                        viewModel.changeSKey(sKey)
+                    onItemClick = { toUnit ->
+                        viewModel.changeSKey(toUnit)
                         viewModel.changeSState(false)
                     })
             }
+        }
+        if (viewModel.result.value.isNotEmpty()) {
+            Text(text = "Result: ${viewModel.result.value}")
         }
     }
 }

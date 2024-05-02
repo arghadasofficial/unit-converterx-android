@@ -11,7 +11,9 @@ import com.scriptintech.unitconverterx.screens.bmi.BmiScreen
 import com.scriptintech.unitconverterx.screens.bmi.BmiViewModel
 import com.scriptintech.unitconverterx.screens.data.DataScreen
 import com.scriptintech.unitconverterx.screens.discount.DiscountScreen
+import com.scriptintech.unitconverterx.screens.discount.DiscountViewModel
 import com.scriptintech.unitconverterx.screens.gst.GstScreen
+import com.scriptintech.unitconverterx.screens.gst.GstViewModel
 import com.scriptintech.unitconverterx.screens.home.HomeScreen
 import com.scriptintech.unitconverterx.screens.numeral.NumeralScreen
 import com.scriptintech.unitconverterx.screens.speed.SpeedScreen
@@ -22,6 +24,8 @@ import com.scriptintech.unitconverterx.screens.time.TimeScreen
 fun UnitNavigation() {
     val areaViewModel: AreaViewModel = viewModel()
     val bmiViewModel: BmiViewModel = viewModel()
+    val discountViewModel: DiscountViewModel = viewModel()
+    val gstViewModel: GstViewModel = viewModel()
 
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Routes.HomeScreen.getRoute) {
@@ -35,10 +39,10 @@ fun UnitNavigation() {
             DataScreen(navController = navController)
         }
         composable(route = Routes.DiscountScreen.getRoute) {
-            DiscountScreen(navController = navController)
+            DiscountScreen(navController = navController, discountViewModel)
         }
         composable(route = Routes.GstScreen.getRoute) {
-            GstScreen(navController = navController)
+            GstScreen(navController = navController, gstViewModel)
         }
         composable(route = Routes.NumeralScreen.getRoute) {
             NumeralScreen(navController = navController)

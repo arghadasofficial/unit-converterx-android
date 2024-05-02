@@ -1,7 +1,6 @@
 package com.scriptintech.unitconverterx.components.model
 
-data class UnitDropdownModel(
-    val key: String,
-    val text: String,
+data class UDropdownModel(
     val unit: String,
+    val text: String,
 )
