@@ -14,11 +14,10 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.scriptintech.unitconverterx.navigations.Routes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TemperatureScreen(navController: NavController) {
+fun TemperatureScreen(navController: NavController, temperatureViewModel: TemperatureViewModel) {
     Scaffold(
         topBar = {
             TopAppBar(title = { Text(text = "Temperature") }, navigationIcon = {
@@ -28,13 +27,14 @@ fun TemperatureScreen(navController: NavController) {
             })
         },
     ) {
-        MainContent(paddingValues = it)
+        MainContent(paddingValues = it, viewModel = temperatureViewModel)
     }
 }
 
 @Composable
 private fun MainContent(
     paddingValues: PaddingValues,
+    viewModel: TemperatureViewModel
 ) {
     Column(modifier = Modifier.padding(paddingValues)) {
         Text(text = "aksdhoiashdiosahdiohasdiohsaidhiasdywudoashxioshadasasdasdasdjsagdisagdjasd")

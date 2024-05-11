@@ -8,6 +8,8 @@ import com.scriptintech.unitconverterx.repository.discount.DiscountCalculator
 import com.scriptintech.unitconverterx.repository.discount.DiscountCalculatorImpl
 import com.scriptintech.unitconverterx.repository.gst.GstCalculator
 import com.scriptintech.unitconverterx.repository.gst.GstCalculatorImpl
+import com.scriptintech.unitconverterx.repository.temperature.Temperature
+import com.scriptintech.unitconverterx.repository.temperature.TemperatureImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,10 +36,17 @@ class AppModule {
     fun provideDiscountCalculator(): DiscountCalculator {
         return DiscountCalculatorImpl()
     }
+
     @Provides
     @Singleton
     fun provideGstCalculator(): GstCalculator {
         return GstCalculatorImpl()
+    }
+
+    @Provides
+    @Singleton
+    fun provideTemperatureConverter(): Temperature {
+        return TemperatureImpl()
     }
 
 }

@@ -13,7 +13,7 @@ android {
         applicationId = "com.scriptintech.unitconverterx"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
+        versionCode = 123
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

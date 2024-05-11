@@ -18,6 +18,7 @@ import com.scriptintech.unitconverterx.screens.home.HomeScreen
 import com.scriptintech.unitconverterx.screens.numeral.NumeralScreen
 import com.scriptintech.unitconverterx.screens.speed.SpeedScreen
 import com.scriptintech.unitconverterx.screens.temperature.TemperatureScreen
+import com.scriptintech.unitconverterx.screens.temperature.TemperatureViewModel
 import com.scriptintech.unitconverterx.screens.time.TimeScreen
 
 @Composable
@@ -26,6 +27,7 @@ fun UnitNavigation() {
     val bmiViewModel: BmiViewModel = viewModel()
     val discountViewModel: DiscountViewModel = viewModel()
     val gstViewModel: GstViewModel = viewModel()
+    val temperatureViewModel: TemperatureViewModel = viewModel()
 
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Routes.HomeScreen.getRoute) {
@@ -57,7 +59,7 @@ fun UnitNavigation() {
             AreaScreen(navController = navController, areaViewModel)
         }
         composable(route = Routes.TemperatureScreen.getRoute) {
-            TemperatureScreen(navController = navController)
+            TemperatureScreen(navController = navController, temperatureViewModel)
         }
     }
 }

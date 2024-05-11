@@ -10,24 +10,34 @@ fun getNavigationItemsList(): List<ConverterNavItems> {
     return listOf(
         ConverterNavItems(
             title = "Gst", icon = R.drawable.tax, route = Routes.GstScreen.getRoute
-        ), ConverterNavItems(
+        ),
+        ConverterNavItems(
             title = "Discount",
             icon = R.drawable.dicount_tag,
             route = Routes.DiscountScreen.getRoute
-        ), ConverterNavItems(
-            title = "Data", icon = R.drawable.data, route = Routes.DataScreen.getRoute
-        ), ConverterNavItems(
+        ),
+        ConverterNavItems(
             title = "Bmi", icon = R.drawable.bmi, route = Routes.BmiScreen.getRoute
-        ), ConverterNavItems(
-            title = "Numeral", icon = R.drawable.numeral, route = Routes.NumeralScreen.getRoute
-        ), ConverterNavItems(
-            title = "Speed", icon = R.drawable.speed, route = Routes.SpeedScreen.getRoute
-        ), ConverterNavItems(
-            title = "Temperature", icon = R.drawable.temperature, route = Routes.TemperatureScreen.getRoute
-        ), ConverterNavItems(
-            title = "Time", icon = R.drawable.time, route = Routes.TimeScreen.getRoute
-        ), ConverterNavItems(
+        ),
+        ConverterNavItems(
             title = "Area", icon = R.drawable.area, route = Routes.AreaScreen.getRoute
-        )
+        ),
+        ConverterNavItems(
+            title = "Data", icon = R.drawable.data, route = Routes.DataScreen.getRoute
+        ),
+        ConverterNavItems(
+            title = "Time", icon = R.drawable.time, route = Routes.TimeScreen.getRoute
+        ),
+        ConverterNavItems(
+            title = "Temperature",
+            icon = R.drawable.temperature,
+            route = Routes.TemperatureScreen.getRoute
+        ),
+        ConverterNavItems(
+            title = "Speed", icon = R.drawable.speed, route = Routes.SpeedScreen.getRoute
+        ),
+        ConverterNavItems(
+            title = "Numeral", icon = R.drawable.numeral, route = Routes.NumeralScreen.getRoute
+        ),
     )
 }
