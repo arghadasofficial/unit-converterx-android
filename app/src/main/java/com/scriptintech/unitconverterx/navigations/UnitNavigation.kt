@@ -17,6 +17,7 @@ import com.scriptintech.unitconverterx.screens.gst.GstViewModel
 import com.scriptintech.unitconverterx.screens.home.HomeScreen
 import com.scriptintech.unitconverterx.screens.numeral.NumeralScreen
 import com.scriptintech.unitconverterx.screens.speed.SpeedScreen
+import com.scriptintech.unitconverterx.screens.speed.SpeedViewModel
 import com.scriptintech.unitconverterx.screens.temperature.TemperatureScreen
 import com.scriptintech.unitconverterx.screens.temperature.TemperatureViewModel
 import com.scriptintech.unitconverterx.screens.time.TimeScreen
@@ -28,6 +29,7 @@ fun UnitNavigation() {
     val discountViewModel: DiscountViewModel = viewModel()
     val gstViewModel: GstViewModel = viewModel()
     val temperatureViewModel: TemperatureViewModel = viewModel()
+    val speedViewModel: SpeedViewModel = viewModel()
 
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Routes.HomeScreen.getRoute) {
@@ -50,7 +52,7 @@ fun UnitNavigation() {
             NumeralScreen(navController = navController)
         }
         composable(route = Routes.SpeedScreen.getRoute) {
-            SpeedScreen(navController = navController)
+            SpeedScreen(navController = navController, viewModel = speedViewModel)
         }
         composable(route = Routes.TimeScreen.getRoute) {
             TimeScreen(navController = navController)

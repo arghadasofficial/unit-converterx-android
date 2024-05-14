@@ -16,7 +16,4 @@ interface Temperature {
 
     fun kelvinToFahrenheit(kelvin: Double): Double
 
-    fun convertStringToDouble(input: String): Double
-
-    fun getUnits(): List<UDropdownModel>
 }

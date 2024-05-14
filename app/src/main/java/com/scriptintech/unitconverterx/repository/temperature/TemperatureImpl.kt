@@ -1,8 +1,9 @@
 package com.scriptintech.unitconverterx.repository.temperature
 
 import com.scriptintech.unitconverterx.components.model.UDropdownModel
+import com.scriptintech.unitconverterx.repository.ConverterDefault
 
-class TemperatureImpl : Temperature {
+class TemperatureImpl : Temperature, ConverterDefault {
     override fun calculate(keyFrom: String, keyTo: String, value: Double): Double {
         return if (keyFrom == "celsius" && keyTo == "fahrenheit") {
             celsiusToFahrenheit(value)
@@ -51,15 +52,15 @@ class TemperatureImpl : Temperature {
         return (kelvin - 273.15) * 9 / 5 + 32
     }
 
-    override fun convertStringToDouble(input: String): Double {
-        return input.toDoubleOrNull() ?: 0.0
-    }
-
     override fun getUnits(): List<UDropdownModel> {
         return listOf(
             UDropdownModel("celsius", "Celsius"),
             UDropdownModel("fahrenheit", "Fahrenheit"),
             UDropdownModel("kelvin", "Kelvin")
         )
+    }
+
+    override fun convertStringToDouble(input: String): Double {
+        return input.toDoubleOrNull() ?: 0.0
     }
 }

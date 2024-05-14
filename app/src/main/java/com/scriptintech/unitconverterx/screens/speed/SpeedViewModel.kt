@@ -1,18 +1,15 @@
-package com.scriptintech.unitconverterx.screens.temperature
+package com.scriptintech.unitconverterx.screens.speed
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.scriptintech.unitconverterx.components.model.UDropdownModel
-import com.scriptintech.unitconverterx.repository.temperature.TemperatureImpl
+import com.scriptintech.unitconverterx.repository.speed.SpeedImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class TemperatureViewModel @Inject constructor(
-    private val temperature: TemperatureImpl
-) :
-    ViewModel() {
+class SpeedViewModel @Inject constructor(private val speed: SpeedImpl) : ViewModel() {
     private val _inputField = mutableStateOf("")
     val input: State<String> = _inputField
 
@@ -31,11 +28,11 @@ class TemperatureViewModel @Inject constructor(
     private val _units = mutableStateOf<List<UDropdownModel>>(emptyList())
     val units: State<List<UDropdownModel>> = _units
 
-    private val _result = mutableStateOf("")
+    private val _result = mutableStateOf("0")
     val result: State<String> = _result
 
     init {
-        _units.value = temperature.getUnits()
+        _units.value = speed.getUnits()
         if (_units.value.isNotEmpty()) {
             _fromUnit.value = _units.value[0].unit
             _toUnit.value = _units.value[1].unit
@@ -64,10 +61,10 @@ class TemperatureViewModel @Inject constructor(
 
     fun calculate() {
         if (_inputField.value.isNotEmpty()) {
-            _result.value = temperature.calculate(
+            _result.value = speed.calculate(
                 _fromUnit.value,
                 _toUnit.value,
-                temperature.convertStringToDouble(_inputField.value)
+                speed.convertStringToDouble(_inputField.value)
             ).toString()
         }
     }

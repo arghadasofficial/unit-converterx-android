@@ -8,7 +8,7 @@ import com.scriptintech.unitconverterx.repository.discount.DiscountCalculator
 import com.scriptintech.unitconverterx.repository.discount.DiscountCalculatorImpl
 import com.scriptintech.unitconverterx.repository.gst.GstCalculator
 import com.scriptintech.unitconverterx.repository.gst.GstCalculatorImpl
-import com.scriptintech.unitconverterx.repository.temperature.Temperature
+import com.scriptintech.unitconverterx.repository.speed.SpeedImpl
 import com.scriptintech.unitconverterx.repository.temperature.TemperatureImpl
 import dagger.Module
 import dagger.Provides
@@ -18,7 +18,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class AppModule {
+object AppModule {
     @Provides
     @Singleton
     fun provideBmiCalculator(): BmiCalculator {
@@ -45,8 +45,13 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideTemperatureConverter(): Temperature {
+    fun provideTemperatureConverter(): TemperatureImpl {
         return TemperatureImpl()
     }
 
+    @Provides
+    @Singleton
+    fun provideSpeedConverter(): SpeedImpl {
+        return SpeedImpl()
+    }
 }
