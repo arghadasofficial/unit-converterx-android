@@ -32,19 +32,23 @@ class TemperatureImpl : Temperature {
     }
 
     override fun fahrenheitToCelsius(fahrenheit: Double): Double {
-        TODO("Not yet implemented")
+        // (0°F − 32) × 5/9
+        return (fahrenheit - 32) * 5 / 9
     }
 
     override fun fahrenheitToKelvin(fahrenheit: Double): Double {
-        TODO("Not yet implemented")
+        // (0°F − 32) × 5/9 + 273.15
+        return (fahrenheit - 32) * 5 / 9 + 273.15
     }
 
     override fun kelvinToCelsius(kelvin: Double): Double {
-        TODO("Not yet implemented")
+        // 0K − 273.15
+        return kelvin - 273.15
     }
 
     override fun kelvinToFahrenheit(kelvin: Double): Double {
-        TODO("Not yet implemented")
+        // (50K − 273.15) × 9/5 + 32
+        return (kelvin - 273.15) * 9 / 5 + 32
     }
 
     override fun convertStringToDouble(input: String): Double {
