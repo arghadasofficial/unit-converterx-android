@@ -8,7 +8,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.scriptintech.unitconverterx.navigations.UnitNavigation
 import com.scriptintech.unitconverterx.ui.theme.UnitConverterXTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,13 +32,5 @@ fun App(content: @Composable () -> Unit) {
         ) {
             content()
         }
-    }
-}
-
-@Preview
-@Composable
-private fun DefaultPreview() {
-    App {
-        UnitNavigation()
     }
 }

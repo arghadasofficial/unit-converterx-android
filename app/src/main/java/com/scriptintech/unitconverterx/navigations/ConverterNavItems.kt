@@ -23,9 +23,6 @@ fun getNavigationItemsList(): List<ConverterNavItems> {
             title = "Area", icon = R.drawable.area, route = Routes.AreaScreen.getRoute
         ),
         ConverterNavItems(
-            title = "Data", icon = R.drawable.data, route = Routes.DataScreen.getRoute
-        ),
-        ConverterNavItems(
             title = "Time", icon = R.drawable.time, route = Routes.TimeScreen.getRoute
         ),
         ConverterNavItems(
@@ -35,9 +32,6 @@ fun getNavigationItemsList(): List<ConverterNavItems> {
         ),
         ConverterNavItems(
             title = "Speed", icon = R.drawable.speed, route = Routes.SpeedScreen.getRoute
-        ),
-        ConverterNavItems(
-            title = "Numeral", icon = R.drawable.numeral, route = Routes.NumeralScreen.getRoute
         ),
     )
 }
