@@ -32,7 +32,7 @@ fun UnitNavigation() {
     val timeViewModel: TimeViewModel = viewModel()
 
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Routes.TimeScreen.getRoute) {
+    NavHost(navController = navController, startDestination = Routes.HomeScreen.getRoute) {
         composable(route = Routes.HomeScreen.getRoute) {
             HomeScreen(navController = navController)
         }
