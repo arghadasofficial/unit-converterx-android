@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.scriptintech.unitconverterx.navigations.UnitNavigation
+import com.scriptintech.unitconverterx.screens.MainScreen
 import com.scriptintech.unitconverterx.ui.theme.UnitConverterXTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,7 +19,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             App {
-                UnitNavigation()
+                MainScreen()
+                //UnitNavigation()
             }
         }
     }

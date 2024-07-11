@@ -9,6 +9,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -81,10 +82,18 @@ private fun MainContent(
 
         if (viewModel.unitResult.value.data.isNotEmpty()) {
 
-            LazyColumn (modifier = Modifier.padding(8.dp)) {
-                items(viewModel.unitResult.value.data.size) {
-                    Text(text = viewModel.unitResult.value.data[it].title)
-                    Text(text = viewModel.unitResult.value.data[it].value)
+            LazyColumn(modifier = Modifier.padding(8.dp)) {
+                items(viewModel.unitResult.value.data.size) { index ->
+                    Card( // Add the Card composable
+                        modifier = Modifier
+                            .padding(vertical = 4.dp, horizontal = 8.dp)
+                            .fillMaxWidth()
+                    ) {
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Text(text = viewModel.unitResult.value.data[index].title)
+                            Text(text = viewModel.unitResult.value.data[index].value)
+                        }
+                    }
                 }
             }
 
