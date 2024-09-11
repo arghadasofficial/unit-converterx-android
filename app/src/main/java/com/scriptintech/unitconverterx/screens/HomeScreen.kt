@@ -88,9 +88,8 @@ fun MainScreen(modifier: Modifier = Modifier) {
 fun ContentScreen(modifier: Modifier = Modifier, selectedIndex: Int) {
     when(selectedIndex) {
         0-> FavouriteScreen()
-        1-> CategoriesScreen()
-        2-> ToolsScreen()
-        3-> HistoryScreen()
-        4-> FavouriteScreen()
+        1-> ToolsScreen()
+        2-> HistoryScreen()
+        3-> FavouriteScreen()
     }
 }

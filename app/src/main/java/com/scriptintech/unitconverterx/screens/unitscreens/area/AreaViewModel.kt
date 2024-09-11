@@ -10,6 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AreaViewModel @Inject constructor(private val areaConverter: AreaConverter) : ViewModel() {
+
     private val _inputField = mutableStateOf("")
     val input: State<String> = _inputField
 

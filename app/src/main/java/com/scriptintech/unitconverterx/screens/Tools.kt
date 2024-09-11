@@ -9,19 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.scriptintech.unitconverterx.navigations.UnitNavigation
 
 @Composable
 fun ToolsScreen(modifier: Modifier = Modifier) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(color = Color(0xFF2196F3))
-    ) {
-        Text(
-            text = "Tools",
-            fontSize = 40.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = Color.White
-        )
-    }
+    UnitNavigation()
 }
